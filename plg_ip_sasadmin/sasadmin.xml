@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="iproperty" version="3.1" method="upgrade">
+    <name>IProperty - Simple Availability System (SAS) - Property Admin</name>
+    <creationDate>February 2015</creationDate>
+    <author>The Thinkery</author>
+    <authorEmail>info@thethinkery.net</authorEmail>
+    <authorUrl>http://www.thethinkery.net</authorUrl>
+    <copyright>Copyright 2015 The Thinkery LLC. All rights reserved.</copyright>
+    <license>GNU/GPL</license>
+    <version>3.3</version>
+    <description>Creates tab after admin property edit view to set availability for property rentals.</description>
+    <!-- installer script -->
+    <scriptfile>installer.php</scriptfile>
+    <languages>
+       <language tag="en-GB">en-GB.plg_iproperty_sasadmin.ini</language>
+    </languages>
+    <files>
+	<folder>files</folder>
+        <filename plugin="sasadmin">sasadmin.php</filename>
+        <filename plugin="sasadmin">sasadmin.js</filename>
+        <filename plugin="sasadmin">install.sql</filename>
+        <filename plugin="sasadmin">README.txt</filename>
+    </files>
+    
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">install.sql</file>
+        </sql>
+    </install>
+    
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+                <field name="tabtitle" type="text" default="" label="PLG_IP_SASADMIN_TABTITLE" description="PLG_IP_SASADMIN_TABTITLE_DESC" />
+				<field name="default_free" type="list" default="" label="PLG_IP_SASADMIN_DEFAULTFREE" description="PLG_IP_SASADMIN_DEFAULTFREE_DESC" />
+				<field name="months" type="text" default="6" label="PLG_IPR_SASADMIN_MONTHS" description="PLG_IPR_SASADMIN_MONTHS_DESC" />
+                <field name="columns" type="integer" default="3" label="PLG_IPR_SASADMIN_COLUMNS" description="PLG_IPR_SASADMIN_COLUMNS_DESC" first="1" last="8" step="1" />
+                <field name="theme" type="list" default="base" label="PLG_IPR_SASADMIN_THEME" description="PLG_IPR_SASADMIN_THEME_DESC">
+                    <option value="base">base</option>
+                    <option value="black-tie">black-tie</option>
+                    <option value="blitzer">blitzer</option>
+                    <option value="cupertino">cupertino</option>
+                    <option value="dark-hive">dark-hive</option>
+                    <option value="dot-luv">dot-luv</option>
+                    <option value="eggplant">eggplant</option>
+                    <option value="excite-bike">excite-bike</option>
+                    <option value="flick">flick</option>
+                    <option value="hot-sneaks">hot-sneaks</option>
+                    <option value="humanity">humanity</option>
+                    <option value="le-frog">le-frog</option>
+                    <option value="mint-choc">mint-choc</option>
+                    <option value="overcast">overcast</option>
+                    <option value="pepper-grinder">pepper-grinder</option>
+                    <option value="redmond">redmond</option>
+                    <option value="smoothness">smoothness</option>
+                    <option value="south-street">south-street</option>
+                    <option value="start">start</option>
+                    <option value="sunny">sunny</option>
+                    <option value="swanky-purse">swanky-purse</option>
+                    <option value="trontastic">trontastic</option>
+                    <option value="ui-darkness">ui-darkness</option>
+                    <option value="ui-lightness">ui-lightness</option>
+                    <option value="vader">vader</option>
+                </field>
+                <field name="start_day" class="btn-group" type="radio" default="0" label="PLG_IPR_SASADMIN_SDAY" description="PLG_IPR_SASADMIN_SDAY_DESC">
+                    <option value="0">SATURDAY</option>
+                    <option value="1">SUNDAY</option>
+                </field>
+                <field name="date_format" class="btn-group" type="radio" default="0" label="PLG_IPR_SASADMIN_DATESTYLE" description="PLG_IPR_SASADMIN_DATESTYLE_DESC">
+                    <option value="mm/dd/yy">US - 12/31/2010</option>
+                    <option value="dd/mm/yy">Int'l - 31/12/2010</option>
+                </field>
+            </fieldset>
+            
+        </fields>
+    </config>
+</extension>
