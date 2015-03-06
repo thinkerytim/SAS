@@ -32,10 +32,13 @@
 		<fields name="params">
 			<fieldset name="basic">
                 <field name="tabtitle" type="text" default="" label="PLG_IP_SASADMIN_TABTITLE" description="PLG_IP_SASADMIN_TABTITLE_DESC" />
-				<field name="default_free" type="list" default="" label="PLG_IP_SASADMIN_DEFAULTFREE" description="PLG_IP_SASADMIN_DEFAULTFREE_DESC" />
-				<field name="months" type="text" default="6" label="PLG_IPR_SASADMIN_MONTHS" description="PLG_IPR_SASADMIN_MONTHS_DESC" />
-                <field name="columns" type="integer" default="3" label="PLG_IPR_SASADMIN_COLUMNS" description="PLG_IPR_SASADMIN_COLUMNS_DESC" first="1" last="8" step="1" />
-                <field name="theme" type="list" default="base" label="PLG_IPR_SASADMIN_THEME" description="PLG_IPR_SASADMIN_THEME_DESC">
+				<field name="default_status" class="btn-group" type="radio" default="0" label="PLG_IP_SASADMIN_DEFAULTFREE" description="PLG_IP_SASADMIN_DEFAULTFREE_DESC">
+					<option value="0">PLG_IP_SASADMIN_FREE</option>	
+					<option value="1">PLG_IP_SASADMIN_RESERVED</option>	
+				</field>
+				<field name="months" type="text" default="6" label="PLG_IP_SASADMIN_MONTHS" description="PLG_IP_SASADMIN_MONTHS_DESC" />
+                <field name="columns" type="integer" default="3" label="PLG_IP_SASADMIN_COLUMNS" description="PLG_IP_SASADMIN_COLUMNS_DESC" first="1" last="8" step="1" />
+                <field name="theme" type="list" default="base" label="PLG_IP_SASADMIN_THEME" description="PLG_IP_SASADMIN_THEME_DESC">
                     <option value="base">base</option>
                     <option value="black-tie">black-tie</option>
                     <option value="blitzer">blitzer</option>
@@ -62,11 +65,11 @@
                     <option value="ui-lightness">ui-lightness</option>
                     <option value="vader">vader</option>
                 </field>
-                <field name="start_day" class="btn-group" type="radio" default="0" label="PLG_IPR_SASADMIN_SDAY" description="PLG_IPR_SASADMIN_SDAY_DESC">
+                <field name="start_day" class="btn-group" type="radio" default="0" label="PLG_IP_SASADMIN_SDAY" description="PLG_IP_SASADMIN_SDAY_DESC">
                     <option value="0">SATURDAY</option>
                     <option value="1">SUNDAY</option>
                 </field>
-                <field name="date_format" class="btn-group" type="radio" default="0" label="PLG_IPR_SASADMIN_DATESTYLE" description="PLG_IPR_SASADMIN_DATESTYLE_DESC">
+                <field name="date_format" class="btn-group" type="radio" default="0" label="PLG_IP_SASADMIN_DATESTYLE" description="PLG_IP_SASADMIN_DATESTYLE_DESC">
                     <option value="mm/dd/yy">US - 12/31/2010</option>
                     <option value="dd/mm/yy">Int'l - 31/12/2010</option>
                 </field>

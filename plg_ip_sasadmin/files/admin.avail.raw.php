@@ -50,7 +50,7 @@ class IpropertyControllerAvail extends JControllerLegacy
 		$jinput         = JFactory::getApplication()->input;
         $date 			= $jinput->get('date', false, 'STRING');
         $listing_id 	= $jinput->get('listing_id', false, 'INT');
-        $status 		= $jinput->get('status', 0, 'INT');
+		$status 		= $jinput->get('status', 1, 'INT');
         
         if (!$date || !$listing_id || !$status) {
 			echo new JResponseJson('', 'Missing date / object id / status', true);
