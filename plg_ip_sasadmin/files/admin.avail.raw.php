@@ -10,6 +10,8 @@
 defined( '_JEXEC' ) or die( 'Restricted access');
 jimport('joomla.application.component.controller');
 
+require_once(JPATH_COMPONENT_SITE.'/helpers/auth.php');
+
 class IpropertyControllerAvail extends JControllerLegacy
 {
     protected $text_prefix = 'COM_IPROPERTY';
@@ -50,9 +52,14 @@ class IpropertyControllerAvail extends JControllerLegacy
 		$jinput         = JFactory::getApplication()->input;
         $date 			= $jinput->get('date', false, 'STRING');
         $listing_id 	= $jinput->get('listing_id', false, 'INT');
-		$status 		= $jinput->get('status', 1, 'INT');
+        $status 		= $jinput->get('status', 1, 'INT');
         
-        if (!$date || !$listing_id || !$status) {
+		// check auth
+		$ipauth			= new ipropertyHelperAuth();
+        if (!$ipauth->canEditProp($object_id)){
+			echo new JResponseJson('', 'Unauthorized user-- cannot modify this listing', true);
+			die();
+		} else if (!$date || !$listing_id || !$status) {
 			echo new JResponseJson('', 'Missing date / object id / status', true);
 			die();
 		}
@@ -64,23 +71,16 @@ class IpropertyControllerAvail extends JControllerLegacy
 		$query->from($db->quoteName('#__iproperty_availability'));
 		$query->where($db->quoteName('date')." = ".$db->quote($date));
 		$query->where($db->quoteName('listing_id')." = ".$db->quote($listing_id));
-		$query->where($db->quoteName('status')." = ".$db->quote($status));
 
 		$db->setQuery($query);
-		if ($result = $db->loadResult()){
+		if ($result = $db->loadResult()){	
 			// we have a result-- update it
-			$query = $db->getQuery(true);
-			$conditions = array(
-				$db->quoteName('date').' = '.$db->quote($date), 
-				$db->quoteName('listing_id').' = '.$db->quote($listing_id),
-				$db->quoteName('status').' = '.$db->quote($status)
-			);
-			 
+			$query = $db->getQuery(true);			 
 			$query->update($db->quoteName('#__iproperty_availability'));
-			$query->set($db->quoteName('status'));
-			$query->where($conditions);
+			$query->set($db->quoteName('status').' = '.$db->quote($status));
+			$query->where('id = '.$result);
 			$db->setQuery($query);
-			
+		
 			try
 			{
 				$result = $db->execute();
@@ -88,6 +88,7 @@ class IpropertyControllerAvail extends JControllerLegacy
 			} 
 			catch(Exception $e)
 			{
+				error_log($query->__toString());
 				echo new JResponseJson($e);
 			}			
 		} else {

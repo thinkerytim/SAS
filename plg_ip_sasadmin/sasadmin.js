@@ -31,7 +31,7 @@
 			buildCalendar();
 		});
 		
-		function buildCalendar(){
+		function buildCalendar(){			
 			// build the calendar
 			$("#ip-sasadmin-calendar").datepicker({
 				firstDay: firstday,
@@ -66,15 +66,11 @@
 		}
 		
 		// this is the function to change the status on click 
-		function changeStatus(date, inst){
-			// get the new status
-			var newstatus = getStatus(inst);
-console.dir(newstatus);			
+		function changeStatus(date, inst){		
 			// strip time data from date, convert to UTC
 			date 		= getSQLDate(date);
 			data.date 	= date;
-			data.status = newstatus.status;
-	
+			data.status = getStatus(inst);	
 			$.ajax({
 				url: "index.php?option=com_iproperty&format=raw&task=avail.changeStatus",
 				data: data,
@@ -82,7 +78,7 @@ console.dir(newstatus);
 			}).done(function(data) {					
 				if (data.success){				
 					// set the element to the new status
-					$(inst).removeClass(newstatus.oldclass).addClass(newstatus.newclass);
+					getStatus(inst, true);
 				} else if (data.success == false){
 					console.dir(data);
 					return false;
@@ -90,7 +86,50 @@ console.dir(newstatus);
 			});
 
 		}
-
+		
+		var getStatus = function(el, change){
+			var change = typeof change !== 'undefined' ? true : false;
+			var ret_val = '';
+			
+			var newel = getElementStyle(el);
+			
+			// check the class on the element and return the status ID
+			if (newel.className.search('sas-free') !== -1) {			
+				// current status is 1-- so we want to toggle to 2 with new class
+				ret_val = { 'status': 2, 'newclass': 'sas-tentative', 'oldclass': 'sas-free', 'title': 'TENTATIVE' };
+			} else if (newel.className.search('sas-tentative') !== -1){
+				// current status is 2-- so we want to toggle to 3 with new class
+				ret_val = { 'status': 3, 'newclass': 'sas-booked', 'oldclass': 'sas-tentative', 'title': 'BOOKED' };
+			} else if (newel.className.search('sas-booked') !== -1){
+				// current status is 3-- so we want to toggle to 1 with new class
+				ret_val = { 'status': 1, 'newclass': 'sas-free', 'oldclass': 'sas-booked', 'title': 'FREE' };
+			}			
+			// change the classes if we need to
+			if (change) {
+console.log('fired change event: '+newel.className);				
+console.log('doing change css from '+ret_val.oldclass+' to '+ret_val.newclass);
+				$(newel).removeClass(ret_val.oldclass).addClass(ret_val.newclass).attr('title', ret_val.title);
+console.log('after change: '+newel.className);				
+				return;
+			} else {				
+				return ret_val.status;
+			}
+		}
+		
+		var getElementStyle = function(el){			
+			var day  = el.selectedDay,
+				mon  = el.selectedMonth,
+				year = el.selectedYear;
+				
+			var el = $(el.dpDiv).find('[data-year="'+year+'"][data-month="'+mon+'"]').filter(function() {
+				return $(this).find('a').text().trim() == day;
+			});
+console.log('########');			
+console.dir(el);		
+console.log('########');	
+			return el[0];
+		}
+		
 		// convert date to mySQL format and switch to UTC		
 		function getSQLDate(date){
 			// convert date to UTC
@@ -143,29 +182,15 @@ console.dir(newstatus);
 			return year+'-'+newmonth+'-'+day;
 		}
 		
-		var getStatus = function(el){
-			var day  = el.selectedDay,
-				mon  = el.selectedMonth,
-				year = el.selectedYear;
-                
-			var el = $(el.dpDiv).find('[data-year="'+year+'"][data-month="'+mon+'"]').filter(function() {
-				return $(this).find('a').text().trim() == day;
-			});
+		// convert SQL date to javascript format		
+		function getJSDate(date){
+			//var date 	= date.split("-");
+			//var year  	= date[0];  
+			//var month 	= date[1].charAt(0) == 0 ? date[1].charAt(1) - 1 : date[1] - 1; // trim leading zero and subtract 1
+			//var day		= date
 
-/////DO THE TRANSFORM IN HERE SINCE WE HAVE THE ELEMENT TO MODIFY
-
-
-			// check the class on the element and return the status ID
-			if (el[0].className.trim() == 'sas-free') {
-				// current status is 1-- so we want to toggle to 2 with new class
-				return { 'status': 2, 'newclass': 'sas-tentative', 'oldclass': 'sas-free' };
-			} else if (el[0].className.trim() == 'sas-tentative'){
-				// current status is 2-- so we want to toggle to 3 with new class
-				return { 'status': 3, 'newclass': 'sas-booked', 'oldclass': 'sas-tentative' };
-			} else if (el[0].className.trim() == 'sas-booked'){
-				// current status is 3-- so we want to toggle to 1 with new class
-				return { 'status': 1, 'newclass': 'sas-free', 'oldclass': 'sas-booked' };
-			}
+			return new Date(date + 'UTC');
 		}
+		
 	});
 })(jQuery);
