@@ -73,6 +73,9 @@
                     <option value="mm/dd/yy">US - 12/31/2010</option>
                     <option value="dd/mm/yy">Int'l - 31/12/2010</option>
                 </field>
+                <field name="freestyle" type="color" default="#B6F5AB" label="PLG_IP_SASADMIN_FREESTYLE"	description="PLG_IP_SASADMIN_FREESTYLE_DESC" />
+                <field name="tentstyle" type="color" default="#ABF5E9" label="PLG_IP_SASADMIN_TENTSTYLE"	description="PLG_IP_SASADMIN_TENTSTYLE_DESC" />
+                <field name="bookstyle" type="color" default="#F5ABC0" label="PLG_IP_SASADMIN_BOOKSTYLE"	description="PLG_IP_SASADMIN_BOOKSTYLE_DESC" />
             </fieldset>
             
         </fields>

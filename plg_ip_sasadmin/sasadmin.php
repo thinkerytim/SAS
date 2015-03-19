@@ -49,9 +49,9 @@ class plgIpropertySasadmin extends JPlugin
 		
 		$document->addScriptDeclaration( $script );
 		
-		$css  = "td.sas-free a{ background-color: #B6F5AB !important; background-image: none !important }";
-		$css .= "td.sas-tentative a{ background-color: #ABF5E9 !important; background-image: none !important }";
-		$css .= "td.sas-booked a{ background-color: #F5ABC0 !important; background-image: none !important }";
+		$css  = "td.sas-free a{ background-color: ".$this->params->get('freestyle', '#B6F5AB')." !important; background-image: none !important }";
+		$css .= "td.sas-tentative a{ background-color: ".$this->params->get('tentstyle', '#ABF5E9')." !important; background-image: none !important }";
+		$css .= "td.sas-booked a{ background-color: ".$this->params->get('tentstyle', '#F5ABC0')." !important; background-image: none !important }";
 		$css .= ".ui-datepicker { max-width: 100% }";
 				
 		$document->addStyleDeclaration( $css );

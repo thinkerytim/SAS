@@ -49,20 +49,19 @@ class plgIpropertySasadmin extends JPlugin
 		
 		$document->addScriptDeclaration( $script );
 		
-		$css  = "td.sas-free a{ background-color: #B6F5AB !important; background-image: none !important }";
-		$css .= "td.sas-tentative a{ background-color: #ABF5E9 !important; background-image: none !important }";
-		$css .= "td.sas-booked a{ background-color: #F5ABC0 !important; background-image: none !important }";
+		// now the javascript to do the request to the server
+		$document->addScript(JURI::root(true).'/plugins/iproperty/saslisting/saslisting.js');
+		
+		$css  = "td.sas-free a{ background-color: ".$this->params->get('freestyle', '#B6F5AB')." !important; background-image: none !important }";
+		$css .= "td.sas-tentative a{ background-color: ".$this->params->get('tentstyle', '#ABF5E9')." !important; background-image: none !important }";
+		$css .= "td.sas-booked a{ background-color: ".$this->params->get('tentstyle', '#F5ABC0')." !important; background-image: none !important }";
 		$css .= ".ui-datepicker { max-width: 100% }";
 				
 		$document->addStyleDeclaration( $css );
-		
-		// now the javascript to do the request to the server
-		$document->addScript(JURI::root(true).'/plugins/iproperty/sasadmin/sasadmin.js');
-		
+				
 		// build the tab
-		echo JHtmlBootstrap::addTab('ip-propview', 'sasadmin', JText::_($this->params->get('tabtitle', 'PLG_IP_SASADMIN_TABTITLE')));
-        echo '<div id="ip-sasadmin-calendar"></div>';
-		// close the tab	
+		echo JHtmlBootstrap::addTab('ipDetails', 'saslisting', JText::_($this->params->get('tabtitle', 'PLG_IP_SASLISTING_TABTITLE')));
+            echo '<div id="ip-saslisting-calendar"></div>';
         echo JHtmlBootstrap::endTab();
     }
 }
