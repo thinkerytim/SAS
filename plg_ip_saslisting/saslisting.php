@@ -33,6 +33,14 @@ class plgIpropertySasadmin extends JPlugin
 		$document 	= JFactory::getDocument();
 		$date 		= new JDate();
 		$client		= new JApplicationWebClient();
+		
+		// if this property is not in rental stypes, don't continue
+		$stypes = $this->params->get('stypelist', 4);
+        if (is_array($stypes)){
+            if( !in_array($property->stype, $stypes) ) return true;
+        } else {
+            if ( $property->stype !== $stypes ) return true;
+        }
 
 		$document->addScript('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js');
         if ($client->mobile) $document->addScript(JURI::root(true).'/components/com_iproperty/assets/js/jquery.ui.touch-punch.min.js');

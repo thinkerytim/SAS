@@ -30,12 +30,13 @@
     
     <config>
 		<fields name="params">
-			<fieldset name="basic">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_iproperty/models/fields">
                 <field name="tabtitle" type="text" default="" label="PLG_IP_SASADMIN_TABTITLE" description="PLG_IP_SASADMIN_TABTITLE_DESC" />
 				<field name="default_status" class="btn-group" type="radio" default="0" label="PLG_IP_SASADMIN_DEFAULTFREE" description="PLG_IP_SASADMIN_DEFAULTFREE_DESC">
 					<option value="0">PLG_IP_SASADMIN_FREE</option>	
 					<option value="1">PLG_IP_SASADMIN_RESERVED</option>	
 				</field>
+				<field name="stypelist" type="stypes" default="4" label="PLG_IP_SASADMIN_STYPES" description="PLG_IP_SASADMIN_STYPES_DESC" multiple="multiple" size="10" />
 				<field name="months" type="text" default="6" label="PLG_IP_SASADMIN_MONTHS" description="PLG_IP_SASADMIN_MONTHS_DESC" />
                 <field name="columns" type="integer" default="3" label="PLG_IP_SASADMIN_COLUMNS" description="PLG_IP_SASADMIN_COLUMNS_DESC" first="1" last="8" step="1" />
                 <field name="theme" type="list" default="base" label="PLG_IP_SASADMIN_THEME" description="PLG_IP_SASADMIN_THEME_DESC">

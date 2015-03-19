@@ -20,9 +20,9 @@
     </files>    
     <config>
 		<fields name="params">
-			<fieldset name="basic">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_iproperty/models/fields">
                 <field name="tabtitle" type="text" default="" label="PLG_IP_SASLISTING_TABTITLE" description="PLG_IP_SASLISTING_TABTITLE_DESC" />
-                <field name="stypelist" type="stypelist" default="4" label="PLG_IP_SASLISTING_STYPES" description="PLG_IP_SASLISTING_STYPES_DESC" multiple="multiple" size="10" />
+                <field name="stypelist" type="stypes" default="4" label="PLG_IP_SASLISTING_STYPES" description="PLG_IP_SASLISTING_STYPES_DESC" multiple="multiple" size="10" />
 				<field name="months" type="text" default="6" label="PLG_IP_SASLISTING_MONTHS" description="PLG_IP_SASLISTING_MONTHS_DESC" />
                 <field name="columns" type="integer" default="3" label="PLG_IP_SASLISTING_COLUMNS" description="PLG_IP_SASLISTING_COLUMNS_DESC" first="1" last="8" step="1" />
                 <field name="theme" type="list" default="base" label="PLG_IP_SASLISTING_THEME" description="PLG_IP_SASLISTING_THEME_DESC">
