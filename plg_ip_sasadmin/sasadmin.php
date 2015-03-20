@@ -24,7 +24,6 @@ class plgIpropertySasadmin extends JPlugin
     public function __construct(&$subject, $config)
     {
         parent::__construct($subject, $config);
-        $this->settings = ipropertyAdmin::config();
         $this->loadLanguage();
     }
 
@@ -53,13 +52,13 @@ class plgIpropertySasadmin extends JPlugin
 		$script .= 'var months_to_show = "'.$this->params->get('months', 6).'";'."\n";
 		$script .= 'var columns = "'.$this->params->get('columns', 3).'";'."\n";
 		$script .= 'var rows = Math.round(months_to_show / columns);'."\n";
-		$script .= 'var default_status = "'.$this->params->get('default_status', 0).'";'."\n";
+		$script .= 'var default_status = "'.$this->params->get('default_status', 1).'";'."\n";
 		
 		$document->addScriptDeclaration( $script );
 		
 		$css  = "td.sas-free a{ background-color: ".$this->params->get('freestyle', '#B6F5AB')." !important; background-image: none !important }";
 		$css .= "td.sas-tentative a{ background-color: ".$this->params->get('tentstyle', '#ABF5E9')." !important; background-image: none !important }";
-		$css .= "td.sas-booked a{ background-color: ".$this->params->get('tentstyle', '#F5ABC0')." !important; background-image: none !important }";
+		$css .= "td.sas-booked a{ background-color: ".$this->params->get('bookstyle', '#F5ABC0')." !important; background-image: none !important }";
 		$css .= ".ui-datepicker { max-width: 100% }";
 				
 		$document->addStyleDeclaration( $css );

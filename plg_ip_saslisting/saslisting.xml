@@ -8,63 +8,22 @@
     <copyright>Copyright 2015 The Thinkery LLC. All rights reserved.</copyright>
     <license>GNU/GPL</license>
     <version>3.3</version>
-    <description>Creates tab in property view to show availability for property rentals.</description>
+    <description>Creates tab in property view to show availability for property rentals. THIS PLUGIN REQUIRES SASADMIN TO BE ENABLED.</description>
     <languages>
        <language tag="en-GB">en-GB.plg_iproperty_saslisting.ini</language>
     </languages>
     <files>
-	<folder>files</folder>
         <filename plugin="saslisting">saslisting.php</filename>
         <filename plugin="saslisting">saslisting.js</filename>
-        <filename plugin="saslisting">README.txt</filename>
-    </files>    
+    </files>
     <config>
 		<fields name="params">
 			<fieldset name="basic" addfieldpath="/administrator/components/com_iproperty/models/fields">
-                <field name="tabtitle" type="text" default="" label="PLG_IP_SASLISTING_TABTITLE" description="PLG_IP_SASLISTING_TABTITLE_DESC" />
-                <field name="stypelist" type="stypes" default="4" label="PLG_IP_SASLISTING_STYPES" description="PLG_IP_SASLISTING_STYPES_DESC" multiple="multiple" size="10" />
-				<field name="months" type="text" default="6" label="PLG_IP_SASLISTING_MONTHS" description="PLG_IP_SASLISTING_MONTHS_DESC" />
-                <field name="columns" type="integer" default="3" label="PLG_IP_SASLISTING_COLUMNS" description="PLG_IP_SASLISTING_COLUMNS_DESC" first="1" last="8" step="1" />
-                <field name="theme" type="list" default="base" label="PLG_IP_SASLISTING_THEME" description="PLG_IP_SASLISTING_THEME_DESC">
-                    <option value="base">base</option>
-                    <option value="black-tie">black-tie</option>
-                    <option value="blitzer">blitzer</option>
-                    <option value="cupertino">cupertino</option>
-                    <option value="dark-hive">dark-hive</option>
-                    <option value="dot-luv">dot-luv</option>
-                    <option value="eggplant">eggplant</option>
-                    <option value="excite-bike">excite-bike</option>
-                    <option value="flick">flick</option>
-                    <option value="hot-sneaks">hot-sneaks</option>
-                    <option value="humanity">humanity</option>
-                    <option value="le-frog">le-frog</option>
-                    <option value="mint-choc">mint-choc</option>
-                    <option value="overcast">overcast</option>
-                    <option value="pepper-grinder">pepper-grinder</option>
-                    <option value="redmond">redmond</option>
-                    <option value="smoothness">smoothness</option>
-                    <option value="south-street">south-street</option>
-                    <option value="start">start</option>
-                    <option value="sunny">sunny</option>
-                    <option value="swanky-purse">swanky-purse</option>
-                    <option value="trontastic">trontastic</option>
-                    <option value="ui-darkness">ui-darkness</option>
-                    <option value="ui-lightness">ui-lightness</option>
-                    <option value="vader">vader</option>
+                <field name="position" class="btn-group" type="radio" default="0" label="PLG_IP_SASLISTING_POSITION" description="PLG_IP_SASLISTING_POSITION_DESC">
+                    <option value="1">PLG_IP_SASLISTING_BEFORE</option>
+                    <option value="0">PLG_IP_SASLISTING_AFTER</option>
                 </field>
-                <field name="start_day" class="btn-group" type="radio" default="0" label="PLG_IP_SASLISTING_SDAY" description="PLG_IP_SASLISTING_SDAY_DESC">
-                    <option value="0">SATURDAY</option>
-                    <option value="1">SUNDAY</option>
-                </field>
-                <field name="date_format" class="btn-group" type="radio" default="0" label="PLG_IP_SASLISTING_DATESTYLE" description="PLG_IP_SASLISTING_DATESTYLE_DESC">
-                    <option value="mm/dd/yy">US - 12/31/2010</option>
-                    <option value="dd/mm/yy">Int'l - 31/12/2010</option>
-                </field>
-                <field name="freestyle" type="color" default="#B6F5AB" label="PLG_IP_SASLISTING_FREESTYLE"	description="PLG_IP_SASLISTING_FREESTYLE_DESC" />
-                <field name="tentstyle" type="color" default="#ABF5E9" label="PLG_IP_SASLISTING_TENTSTYLE"	description="PLG_IP_SASLISTING_TENTSTYLE_DESC" />
-                <field name="bookstyle" type="color" default="#F5ABC0" label="PLG_IP_SASLISTING_BOOKSTYLE"	description="PLG_IP_SASLISTING_BOOKSTYLE_DESC" />
             </fieldset>
-            
         </fields>
     </config>
 </extension>

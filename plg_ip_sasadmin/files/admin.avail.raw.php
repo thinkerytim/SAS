@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 3.3.2 2015-01-13
+ * @version 3.3 2015-02-28
  * @package Joomla
  * @subpackage Intellectual Property
  * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
