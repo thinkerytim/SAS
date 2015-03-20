@@ -72,6 +72,7 @@ class plgIpropertySaslisting extends JPlugin
 		$script .= 'var columns = "'.$params->get('columns', 3).'";'."\n";
 		$script .= 'var rows = Math.round(months_to_show / columns);'."\n";
 		$script .= 'var default_status = "'.$params->get('default_status', 3).'";'."\n";
+		$script .= 'var sas-language = {"free": "'.JText::_( 'PLG_IP_SASLISTING_FREE' ).'", "tent": "'.JText::_( 'PLG_IP_SASLISTING_TESTSTYLE' ).'", "book": "'.JText::_( 'PLG_IP_SASLISTING_BOOKED' ).'"}";'."\n";
 		
 		$document->addScriptDeclaration( $script );
 		
@@ -82,6 +83,7 @@ class plgIpropertySaslisting extends JPlugin
 		$css .= "td.sas-tentative a{ background-color: ".$params->get('tentstyle', '#ABF5E9')." !important; background-image: none !important }";
 		$css .= "td.sas-booked a{ background-color: ".$params->get('bookstyle', '#F5ABC0')." !important; background-image: none !important }";
 		$css .= ".ui-datepicker { max-width: 100% }";
+		$css .= "#ip-legend { border-radius: 2px; border: 1px solid; padding: 5px; margin: 5px; border-color: darkgrey; }";
 		$css .= ".ip-legend-free { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('freestyle', '#B6F5AB')."; }";
 		$css .= ".ip-legend-tent { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('tentstyle', '#ABF5E9')."; }";
 		$css .= ".ip-legend-book { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('bookstyle', '#F5ABC0')."; }";

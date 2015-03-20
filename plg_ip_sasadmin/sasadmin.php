@@ -53,6 +53,7 @@ class plgIpropertySasadmin extends JPlugin
 		$script .= 'var columns = "'.$this->params->get('columns', 3).'";'."\n";
 		$script .= 'var rows = Math.round(months_to_show / columns);'."\n";
 		$script .= 'var default_status = "'.$this->params->get('default_status', 1).'";'."\n";
+		$script .= 'var sas-language = {"free": "'.JText::_( 'PLG_IP_SASLISTING_FREE' ).'", "tent": "'.JText::_( 'PLG_IP_SASLISTING_TESTSTYLE' ).'", "book": "'.JText::_( 'PLG_IP_SASLISTING_BOOKED' ).'"}";'."\n";
 		
 		$document->addScriptDeclaration( $script );
 		

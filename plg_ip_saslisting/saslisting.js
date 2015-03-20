@@ -45,18 +45,18 @@
 					if (booked[checkdate] !== undefined){
 						var curstatus = booked[checkdate];
 						if (curstatus == 1) {
-							return [true, "sas-free", 'FREE'];
+							return [true, "sas-free", sas-language.free];
 						} else if (curstatus == 2) {
-							return [true, "sas-tentative", 'TENTATIVE'];
+							return [true, "sas-tentative", sas-language.tent];
 						} else if (curstatus == 3) {
-							return [true, "sas-booked", 'BOOKED'];
+							return [true, "sas-booked", sas-language.book];
 						}
 					} else {
 						if (default_status == 3) {
 							// default to booked
-							return [true, 'sas-booked', 'BOOKED'];
+							return [true, 'sas-booked', sas-language.book];
 						}
-						return [true, 'sas-free', 'FREE'];
+						return [true, 'sas-free', sas-language.free];
 					}
 				}
 			});
