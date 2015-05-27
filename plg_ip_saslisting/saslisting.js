@@ -1,3 +1,9 @@
+/*
+ * Intellectual Property SAS Listing 
+ * Copyright (C) 2015 The Thinkery LLC
+ * info@thethinkery.net
+ */
+  
 (function ($) {
     $(document).ready(function () {
 		var token 		= false;
