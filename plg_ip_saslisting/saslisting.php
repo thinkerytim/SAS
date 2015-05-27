@@ -83,7 +83,7 @@ class plgIpropertySaslisting extends JPlugin
 		$css .= "td.sas-tentative a{ background-color: ".$params->get('tentstyle', '#ABF5E9')." !important; background-image: none !important }";
 		$css .= "td.sas-booked a{ background-color: ".$params->get('bookstyle', '#F5ABC0')." !important; background-image: none !important }";
 		$css .= ".ui-datepicker { max-width: 100% }";
-		$css .= "#ip-legend { border-radius: 2px; border: 1px solid; padding: 5px; margin: 5px; border-color: darkgrey; }";
+		$css .= "#ip-legend { border-radius: 2px; border: 1px solid; padding: 5px; margin: 5px; border-color: darkgrey; height: 35px; }";
 		$css .= ".ip-legend-free { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('freestyle', '#B6F5AB')."; }";
 		$css .= ".ip-legend-tent { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('tentstyle', '#ABF5E9')."; }";
 		$css .= ".ip-legend-book { width: 12px; height: 12px; border-radius: 2px; background-color: ".$params->get('bookstyle', '#F5ABC0')."; }";
@@ -92,7 +92,7 @@ class plgIpropertySaslisting extends JPlugin
 		// build the tab
 		echo JHtmlBootstrap::addTab('ipDetails', 'saslisting', JText::_('PLG_IP_SASLISTING_TABTITLE'));
 			// build the legend
-			echo '<div id="ip-legend">'.JText::_( 'PLG_IP_SASLISTING_FREE' ).'<div class="ip-legend-free"></div> '.JText::_( 'PLG_IP_SASLISTING_TENTSTYLE' ).'<div class="ip-legend-tent"></div> '.JText::_( 'PLG_IP_SASLISTING_BOOKED' ).'<div class="ip-legend-book"></div></div>';
+        echo '<div id="ip-legend"><div class="span4">'.JText::_( 'PLG_IP_SASLISTING_FREE' ).'<div class="ip-legend-free"></div></div><div class="span4">'.JText::_( 'PLG_IP_SASLISTING_TENTSTYLE' ).'<div class="ip-legend-tent"></div></div><div class="span4">'.JText::_( 'PLG_IP_SASLISTING_BOOKED' ).'<div class="ip-legend-book"></div></div></div>';
             echo '<div id="ip-saslisting-calendar"></div>';
         echo JHtmlBootstrap::endTab();
     }
