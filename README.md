@@ -1,8 +1,5 @@
 How to Use IProperty Simple Availability System (SAS)
 =====================================================
-
-# IProperty SAS
-IProperty Simple Availability System
 Copyright (C) 2015 The Thinkery LLC 
 All Rights Reserved
 www.thethinkery.net
