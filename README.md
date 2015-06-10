@@ -21,7 +21,7 @@ Any user with the authority to edit a listing will be able to maintain the calen
 
 How to Install IProperty SAS
 ----------------------------
-Clone or download the SAS repository. Then navigate into the respective plugin directoreies (plg_ip_sasadmin and plg_ip_saslisting) and zip ALL of the files and directories in the plugin directory into a single archive, one for each plugin. You should have TWO archives, one for plg_ip_sasadmin and one for plg_ip_saslisting.
+Clone or download the SAS repository. Then navigate into the respective plugin directories (plg_ip_sasadmin and plg_ip_saslisting) and zip ALL of the files and directories in the plugin directory into a single archive, one for each plugin. You should have TWO archives, one for plg_ip_sasadmin and one for plg_ip_saslisting.
 
 Use the Joomla Extension Manager in your Joomla Admin to install the plg_ip_sasadmin and plg_ip_saslisting plugins. 
 Enable the plugins in the Joomla Plugin Manager, and configure them as described in each plugin's README doc.
