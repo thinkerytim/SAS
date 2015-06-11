@@ -19,7 +19,7 @@
         <filename plugin="sasadmin">sasadmin.php</filename>
         <filename plugin="sasadmin">sasadmin.js</filename>
         <filename plugin="sasadmin">install.sql</filename>
-        <filename plugin="sasadmin">README.txt</filename>
+        <filename plugin="sasadmin">README.MD</filename>
     </files>
     
     <install>
