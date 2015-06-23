@@ -8,9 +8,10 @@ www.thethinkery.net
 
 info@thethinkery.net
 
-What is IProperty?
+What is Intellectual Property?
 ------------------
-IProperty is a Joomla Real Estate component. It allows real estate agents to create sophisticated websites with advanced features without programming.
+Intellectual Property (IProperty) is a Joomla Real Estate component. It allows real estate agents to create sophisticated websites with advanced features without needing any programming or having to be an expert web designer.
+
 IProperty is developed by The Thinkery LLC, and can be demo'd at http://iproperty.thethinkery.net.
 
 What is IProperty SAS?
