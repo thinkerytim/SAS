@@ -1,6 +1,6 @@
 How to Use IProperty Simple Availability System (SAS)
 =====================================================
-Copyright (C) 2015 The Thinkery LLC
+Copyright &copy; 2015 The Thinkery LLC
 
 All Rights Reserved
 
@@ -16,7 +16,7 @@ IProperty is developed by The Thinkery LLC, and can be demo'd at http://ipropert
 
 What is IProperty SAS?
 ----------------------
-IProperty SAS is a Simple Availability System for IProperty. It allows a site admin to allow end users and listing agents to easily maintain their own calendars for their own listings.
+IProperty SAS is a Simple Availability System for IProperty v 3.3+. It allows a site admin to allow end users and listing agents to easily maintain their own calendars for their own listings.
 This is ideal for "Vacation Rental by Owner" (VRBO) or other short term let / rental portal sites. 
 Any user with the authority to edit a listing will be able to maintain the calendar, whether it's a site admin, a listing owner, etc.
 
